@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Almeko - Mon compte{% endblock %}
+
+{% block content %}
+<h1>Mon compte</h1>
+Bienvenue {{app.user.firstname}} dans votre compte. <br/>
+
+<hr>
+<a href="{{path('app_password')}}">Modifier mon mot de passe</a><br/>
+Ajouter mes adresses <br/>
+Mes commandes <br/>
+<hr>
+
+{% endblock %}
