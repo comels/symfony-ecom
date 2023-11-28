@@ -3,12 +3,12 @@
 {% block title %}Almeko - Mon compte{% endblock %}
 
 {% block content %}
-<h1>Mon compte</h1>
+<h2 class="mb-3 text-secondary font-weight-bold">Mon compte</h1>
 Bienvenue {{app.user.firstname}} dans votre compte. <br/>
 
 <hr>
 <a href="{{path('app_password')}}">Modifier mon mot de passe</a><br/>
-Ajouter mes adresses <br/>
+<a href="{{path('app_address')}}">Ajouter mes adresses</a><br/>
 Mes commandes <br/>
 <hr>
 

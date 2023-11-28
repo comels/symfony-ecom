@@ -45,7 +45,7 @@ class ChangePasswordType extends AbstractType
             'second_options' => ['label' => 'Confirmer le nouveau mot de passe'],
         ])
         ->add('submit', SubmitType::class, [
-            'label' => "Mettre à jour"
+            'label' => "Mettre à jour", 'attr' => ['class' => 'class="btn btn-lg btn-info btn-block mt-3"']
         ]);
         ;
     }

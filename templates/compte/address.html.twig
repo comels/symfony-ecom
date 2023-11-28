@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Almeko - Mes adresses
+{% endblock %}
+
+{% block content %}
+	<a href="{{path('app_address_add')}}" class=" btn btn-info btn-sm float-right">Ajouter une adresse</a>
+	<h2 class="mb-3 text-secondary font-weight-bold">Mes adresses</h2>
+	<a href="{{path('app_compte')}}">Retour</a>
+	<hr>
+	{% if app.user.adresses|length == 0 %}
+		Vous n'avez pas encore ajouté d'adresse.
+	{% else %}
+
+		<div class="row">
+			{% for adresse in app.user.adresses %}
+				<div class="col-md-4">
+					<div class="card" style="width: 18rem;">
+						<div class="card-body">
+							<h5 class="card-title">{{adresse.name}}</h5>
+							<p class="card-text">{{adresse.address}},<br>
+                            {{adresse.postal}} {{adresse.city}}, {{adresse.country}}</p>
+							<a href="{{path('app_address_edit', { 'id' : adresse.id} )}}">Modifier</a> | <a href="{{path('app_address_delete', { 'id' : adresse.id} )}}">Supprimer</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	{% endif %}
+
+{% endblock %}

@@ -40,7 +40,7 @@ class RegisterType extends AbstractType
                 'second_options' => ['label' => 'Confirmer le mot de passe'],
             ])
             ->add('submit', SubmitType::class, [
-                'label' => "S'inscrire"
+                'label' => "S'inscrire", 'attr' => ['class' => 'class="btn btn-lg btn-info btn-block mt-3"']
             ]);
     }
 

@@ -58,14 +58,6 @@ class ProductRepository extends ServiceEntityRepository
             $query = $query->andWhere('c.id IN (:categories)')
             ->setParameter('categories', $search->categories);
         }
-        
-        // %{$search->string}% est une expression utilisée pour la recherche partielle. 
-        // Les % sont des jokers en SQL qui correspondent à n'importe quelle séquence de caractères.
-        if (!empty($search->string)) {
-            $query = $query->andWhere('p.name LIKE :string')
-            ->setParameter('string', "%{$search->string}%");
-        }
-
         return $query->getQuery()->getResult();
     }
 
