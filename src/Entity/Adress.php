@@ -85,6 +85,11 @@ class Adress
         return $this;
     }
 
+    public function __toString(): string
+    {
+        return $this->firstname . ' ' . $this->lastname . 'br' . $this->address . 'br' . $this->city . ', ' . $this->postal;
+    }
+
     public function getName(): ?string
     {
         return $this->name;

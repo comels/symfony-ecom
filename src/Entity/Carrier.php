@@ -32,6 +32,8 @@ class Carrier
      */
     private $price;
 
+   
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,6 +56,7 @@ class Carrier
         return $this->description;
     }
 
+
     public function setDescription(string $description): self
     {
         $this->description = $description;
@@ -71,5 +74,10 @@ class Carrier
         $this->price = $price;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name . ' ( ' . $this->price . ' € )';
     }
 }

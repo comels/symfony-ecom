@@ -64,3 +64,14 @@ body a {
 .nav-item .nav-link.active {
     font-weight: bold; /* Rend le texte du lien actif dans la barre de navigation en gras */ 
 }
+
+.form-check {
+    background-color: #F8F9FA;
+    padding: 20px 65px;
+    margin-top: 7px;
+
+}
+
+.col-form-label {
+    font-weight: bold;
+}

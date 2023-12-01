@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Cart;
 use App\Entity\Adress;
 use App\Form\AdressType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -23,7 +24,7 @@ class AcountAddressController extends AbstractController
     /**
      * @Route("/compte/ajouter-adresse", name="app_address_add")
      */
-    public function add(Request $request, EntityManagerInterface $entityManager): Response
+    public function add(Cart $cart, Request $request, EntityManagerInterface $entityManager): Response
     {
         $adress = new Adress();
         $form = $this->createForm(AdressType::class, $adress);
@@ -36,7 +37,11 @@ class AcountAddressController extends AbstractController
             $entityManager->persist($adress);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_address');
+            if ($cart->get()) {
+                return $this->redirectToRoute('app_order');
+            } else {
+                return $this->redirectToRoute('app_address');
+            }
         }
 
         return $this->render('compte/address_form.html.twig', [
@@ -73,7 +78,7 @@ class AcountAddressController extends AbstractController
     /**
      * @Route("/compte/supprimer-adresse/{id}", name="app_address_delete")
      */
-    public function delete(Request $request, EntityManagerInterface $entityManager, $id): Response
+    public function delete(EntityManagerInterface $entityManager, $id): Response
     {
         $adress = $entityManager->getRepository(Adress::class)->findOneById($id);
 

@@ -18,6 +18,7 @@ class PasswordController extends AbstractController // Déclaration du contrôle
      */
     public function index(Request $request, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $entityManager): Response
     {
+        dd(phpinfo());
         $notification = null; // Variable pour stocker les notifications à afficher à l'utilisateur
         $user = $this->getUser(); // Récupère l'utilisateur actuellement connecté
         $form = $this->createForm(ChangePasswordType::class, $user); // Crée le formulaire de changement de mot de passe
